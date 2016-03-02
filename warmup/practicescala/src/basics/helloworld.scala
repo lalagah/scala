@@ -1,4 +1,4 @@
-package stuff
+package basics
 
 object helloworld {
   
