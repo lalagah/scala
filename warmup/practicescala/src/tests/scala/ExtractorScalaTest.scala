@@ -8,9 +8,10 @@ import enums.Gender;
 
 class ExtractorsTest {
 
-	val mike : User = new BaseUser(1, "Mike", Gender.male);
-	val sally : User = new BaseUser(2, "Sally", Gender.female);
-	val fred : User = new SpecialUser(2, "Fred", Gender.male);
+	val mike : User = new BaseUser(1, "Mike", Some(Gender.male));
+	val sally : User = new BaseUser(2, "Sally", Some(Gender.female));
+	val fred : User = new SpecialUser(2, "Fred", Some(Gender.male));
+	val alex : User = new SpecialUser(1, "Alex", None);
 	
 	@Test def test_MessingWithExtractors(){
 		println(matchUser(mike));
@@ -24,6 +25,7 @@ class ExtractorsTest {
 			case SpecialUser(_ , name) => "Hello " + name + " you are a special user"
 		}
 	}
+	
 	
 	
 	
