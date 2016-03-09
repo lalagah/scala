@@ -27,6 +27,13 @@ class ExtractorsTest {
 		println(matchUserGender(alex));
 	}
 	
+	@Test def test_MessingWithExtractors_Gender_take_two(){
+		println(matchUserGender(mike));
+		println(matchUserGender(sally));
+		println(matchUserGender(fred));
+		println(matchUserGender(alex));
+	}
+	
 	def matchUserGender(user: User) : String = {
 		user match {
 			case BaseUser(_, _, Some(Gender.male)) => "you are a dude"
@@ -37,13 +44,20 @@ class ExtractorsTest {
 		}
 	}
 	
+	def matchUserGender_take_two(user: User) : String = {
+		val gender = user.gender;
+	
+		gender match {
+			case Some(Gender.male) => "you are a dude"
+			case Some(Gender.female) => "you are a chick"
+			case _ => "you are a mystery"
+		}
+	}
+	
 	def matchUserName(user: User) : String = {
 		user match {
 			case BaseUser(_, name, _) => "Hello " + name + " you are a normal user"
 			case SpecialUser(_ , name, _) => "Hello " + name + " you are a special user"
 		}
 	}
-	
-	
-	
 }
