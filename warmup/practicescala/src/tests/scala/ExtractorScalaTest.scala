@@ -6,6 +6,7 @@ import traits.SpecialUser;
 import traits.User;
 import enums.Gender;
 import scala.collection.mutable.ListBuffer;
+import org.scalatest.Matchers._;
 
 class ExtractorsTest {
 
@@ -48,8 +49,7 @@ class ExtractorsTest {
 		
 		val expected = List(1,2,2,1);
 		
-		println(actual);
-		println(expected);
+		assert(expected == actual);
 	}
 	
 	def matchTuple(tuple: (_, _)) : Integer = {
